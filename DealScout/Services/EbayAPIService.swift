@@ -26,8 +26,8 @@ final class EbayAPIService: ObservableObject {
 
     // MARK: - Configuration
 
-    private let clientID: String = "BrevinBl-DealScou-PRD-b118c3532-0162bb8b"
-    private let clientSecret: String = "PRD-118c3532a5a9-0935-4056-a516-9c04"
+    private let clientID: String = ""
+    private let clientSecret: String = ""
 
     /// Determine if using sandbox based on Client ID
     private var isSandbox: Bool {
