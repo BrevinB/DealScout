@@ -80,15 +80,6 @@ final class EbayDealFinderViewModel: ObservableObject {
         loadPriceHistories()
         loadSavedComparisons()
         requestNotificationPermission()
-
-        // Listen for credential updates
-        NotificationCenter.default.addObserver(
-            forName: .ebayCredentialsUpdated,
-            object: nil,
-            queue: .main
-        ) { _ in
-            self.objectWillChange.send()
-        }
     }
 
     // MARK: - API Testing

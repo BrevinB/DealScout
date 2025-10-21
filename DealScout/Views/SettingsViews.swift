@@ -15,40 +15,12 @@ struct SettingsView: View {
     // MARK: - Properties
 
     @ObservedObject var viewModel: EbayDealFinderViewModel
-    @State private var showingAPISetup = false
 
     // MARK: - Body
 
     var body: some View {
         NavigationView {
             List {
-                // API Configuration
-                Section {
-                    HStack {
-                        Image(systemName: "key.fill")
-                            .foregroundColor(.blue)
-                            .frame(width: 24)
-
-                        VStack(alignment: .leading) {
-                            Text("eBay API Configuration")
-                                .font(.headline)
-
-                            Text(viewModel.hasValidAPICredentials ? "Configured" : "Not configured")
-                                .font(.caption)
-                                .foregroundColor(viewModel.hasValidAPICredentials ? .green : .red)
-                        }
-
-                        Spacer()
-
-                        Button("Setup") {
-                            showingAPISetup = true
-                        }
-                        .buttonStyle(.bordered)
-                    }
-                } header: {
-                    Text("API Settings")
-                }
-
                 // Data Management
                 Section {
                     HStack {
@@ -118,31 +90,11 @@ struct SettingsView: View {
                         Spacer()
                     }
 
-                    HStack {
-                        Image(systemName: "hammer")
-                            .foregroundColor(.orange)
-                            .frame(width: 24)
-
-                        Text("Test API Connection")
-
-                        Spacer()
-
-                        Button("Test") {
-                            Task {
-                                await viewModel.testAPIConnection()
-                            }
-                        }
-                        .buttonStyle(.bordered)
-                        .disabled(!viewModel.hasValidAPICredentials)
-                    }
                 } header: {
                     Text("About")
                 }
             }
             .navigationTitle("Settings")
-        }
-        .sheet(isPresented: $showingAPISetup) {
-            APISetupView()
         }
     }
 }

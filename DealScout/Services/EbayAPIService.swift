@@ -26,13 +26,8 @@ final class EbayAPIService: ObservableObject {
 
     // MARK: - Configuration
 
-    private var clientID: String {
-        return UserDefaults.standard.string(forKey: "EbayClientId") ?? "YOUR_EBAY_CLIENT_ID"
-    }
-
-    private var clientSecret: String {
-        return UserDefaults.standard.string(forKey: "EbayClientSecret") ?? "YOUR_EBAY_CLIENT_SECRET"
-    }
+    private let clientID: String = "BrevinBl-DealScou-PRD-b118c3532-0162bb8b"
+    private let clientSecret: String = "PRD-118c3532a5a9-0935-4056-a516-9c04"
 
     /// Determine if using sandbox based on Client ID
     private var isSandbox: Bool {

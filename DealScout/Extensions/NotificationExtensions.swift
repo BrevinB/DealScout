@@ -10,5 +10,5 @@ import Foundation
 // MARK: - Notification Extensions
 
 extension Notification.Name {
-    static let ebayCredentialsUpdated = Notification.Name("ebayCredentialsUpdated")
+    // Future notification definitions can be added here
 }
